@@ -14,10 +14,19 @@ namespace JogoDeXadrez
             ImprimirPecasCapturadas(partida);
             Console.WriteLine();
             Console.WriteLine("Turno: " + partida.Turno);
-            Console.WriteLine("Aguardando jogada: " + partida.JogadorAtual);
-            if (partida.Xeque)
+            if (!partida.Terminada)
             {
-                Console.WriteLine("XEQUE!");
+                Console.WriteLine("Aguardando jogada: " + partida.JogadorAtual);
+                if (partida.Xeque)
+                {
+                    Console.WriteLine("XEQUE!");
+                }
+            }
+            else
+            {
+                Console.WriteLine();
+                Console.WriteLine("XEQUEMATE!");
+                Console.WriteLine("Vencedor: "+ partida.JogadorAtual);
             }
         }
 
@@ -33,7 +42,6 @@ namespace JogoDeXadrez
             ImprimirConjunto(partida.PecasCapturadas(Cor.Preta));
             Console.ForegroundColor = aux;
             Console.WriteLine();
-
         }
 
         public static void ImprimirConjunto(HashSet<Peca> conjunto)
