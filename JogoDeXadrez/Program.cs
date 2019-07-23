@@ -12,29 +12,29 @@ namespace JogoDeXadrez
             {
                 PartidaDeXadrez partida = new PartidaDeXadrez();
 
-                while (!partida.Terminada)
+                while (!partida.terminada)
                 {
                     try
                     {
                         Console.Clear();
-                        Tela.ImprimirPartida(partida);
+                        Tela.imprimirPartida(partida);
 
                         Console.WriteLine();
                         Console.Write("Origem: ");
-                        Posicao origem = Tela.LerPosicaoXadrez().ToPosicao();
-                        partida.ValidarPosicaoDeOrigem(origem);
+                        Posicao origem = Tela.lerPosicaoXadrez().toPosicao();
+                        partida.validarPosicaoDeOrigem(origem);
 
-                        bool[,] posicoesPossiveis = partida.Tab.Peca(origem).MovimentosPossiveis();
+                        bool[,] posicoesPossiveis = partida.tab.peca(origem).movimentosPossiveis();
 
                         Console.Clear();
-                        Tela.ImprimirTabuleiro(partida.Tab, posicoesPossiveis);
+                        Tela.imprimirTabuleiro(partida.tab, posicoesPossiveis);
 
                         Console.WriteLine();
                         Console.Write("Destino: ");
-                        Posicao destino = Tela.LerPosicaoXadrez().ToPosicao();
-                        partida.ValidarPosicarDeDestino(origem, destino);
+                        Posicao destino = Tela.lerPosicaoXadrez().toPosicao();
+                        partida.validarPosicaoDeDestino(origem, destino);
 
-                        partida.RealizaJogada(origem, destino);
+                        partida.realizaJogada(origem, destino);
                     }
                     catch (TabuleiroException e)
                     {
@@ -44,7 +44,7 @@ namespace JogoDeXadrez
 
                 }
                 Console.Clear();
-                Tela.ImprimirPartida(partida);
+                Tela.imprimirPartida(partida);
 
 
 
